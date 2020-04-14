@@ -1,0 +1,14 @@
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="mt-3 pt-3"> Photos </h2>
+      <ngx-gallery *ngIf="galleryImages" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+    </div>
+    <div *ngIf="city" class="col-md-6">
+      <h2 class="mt-3 pt-3"> My Notes </h2>
+      <div [innerHTML]="city.description"></div>
+    </div>
+  </div>
+
+</main>
+<app-photo></app-photo>

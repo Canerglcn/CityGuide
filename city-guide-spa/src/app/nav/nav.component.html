@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">City Guide</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="city" routerLinkActive="active">City <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="cityadd" routerLinkActive="active">Add City</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
+      </li>
+      
+    </ul>
+    <form *ngIf="!isAuthenticated" #loginForm="ngForm" (ngSubmit)="login()" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" name="userName" [(ngModel)]="loginUser.userName" required type="text"
+        placeholder="User Name">
+      <input class="form-control mr-sm-2" name="password" [(ngModel)]="loginUser.password" required type="password"
+        placeholder="Password">
+      <button class="btn btn-secondary my-2 my-sm-0" [disabled]="!loginForm.valid" type="submit">Login</button>
+    </form>
+    <button class="btn btn-secondary my-2 my-sm-0" *ngIf="isAuthenticated" (click)="logOut()"
+      type="submit">LogOut</button>
+  </div>
+</nav>
